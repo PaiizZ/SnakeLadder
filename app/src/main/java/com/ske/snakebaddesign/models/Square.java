@@ -4,4 +4,9 @@ package com.ske.snakebaddesign.models;
  * Created by PaiizZ on 3/14/2016 AD.
  */
 public class Square {
+    private int number;
+    Square(int number){
+        this.number = number;
+    }
+
 }
