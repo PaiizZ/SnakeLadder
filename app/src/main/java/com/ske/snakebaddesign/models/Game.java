@@ -9,7 +9,7 @@ public class Game {
     private Board board ;
     private Player player1 ;
     private Player player2 ;
-    private Die die ;
+
     private int turn ;
 
     public Game(){
@@ -18,15 +18,10 @@ public class Game {
     private void initComponents(){
         this.player1 = new Player("Pai");
         this.player2 = new Player("Gun");
-        this.die = new Die();
+
         this.board = new Board(7);
         this.turn = 0 ;
     }
-
-    public Die getDie(){
-        return this.die;
-    }
-
 
     public int adjustPosition(int current, int distance) {
         current = current + distance;
@@ -37,11 +32,6 @@ public class Game {
         return current;
     }
 
-
-    public int rollDie(){
-        die.roll();
-        return die.getPoint();
-    }
 
     public Player getPlayer1() {
         return this.player1;

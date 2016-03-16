@@ -75,16 +75,31 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void takeTurn() {
-        final int value = game.rollDie();
-        String title = "You rolled a die";
-        String msg = "You got " + value;
-        OnClickListener listener = new OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                moveCurrentPiece(value);
-                dialog.dismiss();
-            }
-        };
-        displayDialog(title, msg, listener);
+        if (game.getTurn() % 2 == 0) {
+            final int value = game.getPlayer1().rollDie();
+            String title = game.getPlayer1().getName()+" rolled a die";
+            String msg = game.getPlayer1().getName()+" got " + value;
+            OnClickListener listener = new OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    moveCurrentPiece(value);
+                    dialog.dismiss();
+                }
+            };
+            displayDialog(title, msg, listener);
+        }
+        else{
+            final int value = game.getPlayer2().rollDie();
+            String title = game.getPlayer2().getName()+" rolled a die";
+            String msg = game.getPlayer2().getName()+" got " + value;
+            OnClickListener listener = new OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    moveCurrentPiece(value);
+                    dialog.dismiss();
+                }
+            };
+            displayDialog(title, msg, listener);
+        }
+
     }
 
     private void moveCurrentPiece(int value) {

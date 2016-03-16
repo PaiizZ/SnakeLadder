@@ -9,7 +9,14 @@ public class Die {
 
     private int point ;
     private Random random ;
+    private static Die instance ;
 
+    public static Die getInstance(){
+        if (instance == null){
+            instance = new Die();
+        }
+        return instance ;
+    }
     public Die(){
         random = new Random();
     }

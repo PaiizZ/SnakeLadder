@@ -6,9 +6,19 @@ package com.ske.snakebaddesign.models;
 public class Player {
     private String name ;
     private Piece piece ;
+    private Die die ;
     public Player(String name){
         piece = new Piece();
+        this.die = Die.getInstance();
         this.name = name ;
+    }
+
+    public Die getDie(){
+        return this.die;
+    }
+    public int rollDie(){
+        die.roll();
+        return die.getPoint();
     }
 
     public Piece getPiece() {
