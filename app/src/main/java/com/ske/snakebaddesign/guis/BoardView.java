@@ -17,14 +17,22 @@ public class BoardView extends View {
     private float playerSize;
     private int colorP1 = Color.WHITE;
     private int colorP2 = Color.BLACK;
-    private int colorBG = Color.parseColor("#6d8d46");
-    private int colorCell = Color.parseColor("#87aa4c");
-    private int colorText = Color.parseColor("#cfe8a6");
+    private int colorBG = Color.parseColor("#8AC0F2");
+    private int colorCell = Color.parseColor("#F25192");
+    private int colorText = Color.parseColor("#0f0e0e");
 
     // These variables will be used to keep track of what to render
     private int boardSize;
     private int p1Position;
     private int p2Position;
+
+    private void init() {
+        boardSize = 1;
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setTextSize(30);
+        paint.setTextScaleX(2);
+        paint.setTextAlign(Paint.Align.CENTER);
+    }
 
     public BoardView(Context context) {
         super(context);
@@ -69,14 +77,6 @@ public class BoardView extends View {
         this.p2Position = p2Position;
         postInvalidate();
     }
-
-    private void init() {
-        boardSize = 1;
-        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setTextSize(20);
-        paint.setTextAlign(Paint.Align.CENTER);
-    }
-
 
     private void reloadViewDimensions() {
         viewWidth = getWidth();

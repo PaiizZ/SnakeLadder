@@ -15,7 +15,8 @@ public class Die {
 
     public Die(){
         random = new Random();
-    }public void roll(){
+    }
+    public void roll(){
         this.point = random.nextInt(6)+1 ;
     }
     public int getPoint(){

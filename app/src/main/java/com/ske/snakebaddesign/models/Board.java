@@ -9,7 +9,8 @@ import java.util.List;
  * Created by PaiizZ on 3/14/2016 AD.
  */
 public class Board {
-    private View view ;
+
+    //private View view ;
     private int boardSize;
     private List<Square> squareList;
 
