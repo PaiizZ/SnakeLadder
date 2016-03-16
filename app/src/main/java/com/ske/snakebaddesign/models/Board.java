@@ -8,13 +8,11 @@ import java.util.List;
  */
 public class Board {
 
-    //private View view ;
     private int boardSize;
     private List<Square> squareList;
     private ArrayList<Integer> arrCheck ;
     private int arr[] = new int[] {2,7,18,27,23,39,37,42};
     public Board(int boardSize){
-        //arrCheck = new ArrayList<Integer>();
         this.boardSize = boardSize ;
         squareList = new ArrayList<Square>();
 

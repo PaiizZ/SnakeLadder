@@ -24,10 +24,7 @@ public abstract class Square implements Effective{
     }
 
     public void setColorCell(int colorCell) {
-
         this.colorCell = colorCell;
     }
 
-    @Override
-    public abstract int effectPlayer(int position);
 }

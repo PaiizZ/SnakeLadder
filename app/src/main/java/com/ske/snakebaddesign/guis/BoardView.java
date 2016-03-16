@@ -11,8 +11,6 @@ import com.ske.snakebaddesign.models.Board;
 
 public class BoardView extends View {
 
-    Board board;
-
     // Graphics variables
     private Paint paint;
     private float viewWidth;
@@ -28,6 +26,7 @@ public class BoardView extends View {
     private int boardSize;
     private int p1Position;
     private int p2Position;
+    private Board board ;
 
     private void init() {
         boardSize = 1;

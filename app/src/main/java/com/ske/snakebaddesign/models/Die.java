@@ -24,6 +24,6 @@ public class Die {
         this.point = random.nextInt(6)+1 ;
     }
     public int getPoint(){
-        return this.point;
+        return 2;
     }
 }
