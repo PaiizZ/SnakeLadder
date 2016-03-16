@@ -5,12 +5,14 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ske.snakebaddesign.R;
 import com.ske.snakebaddesign.guis.BoardView;
+import com.ske.snakebaddesign.models.Board;
 import com.ske.snakebaddesign.models.Game;
 
 import java.util.Random;
@@ -40,7 +42,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         resetGame();
-        textPlayerTurn.setText(game.getPlayer1().getName()+"'s Turn");
+        textPlayerTurn.setText(game.getPlayer1().getName() + "'s Turn");
         textPlayerTurn.setTextScaleX(2);
     }
 
@@ -50,7 +52,8 @@ public class GameActivity extends AppCompatActivity {
         buttonTakeTurn = (Button) findViewById(R.id.button_take_turn);
         buttonTakeTurn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {takeTurn();
+            public void onClick(View view) {
+                takeTurn();
             }
         });
         buttonRestart = (Button) findViewById(R.id.button_restart);
@@ -60,11 +63,12 @@ public class GameActivity extends AppCompatActivity {
                 resetGame();
             }
         });
+        boardView.setBoard(game.getBoard());
         textPlayerTurn = (TextView) findViewById(R.id.text_player_turn);
     }
 
     private void resetGame() {
-        game.resetGame();
+        game.reset();
         boardView.setBoardSize(game.getBoard().getBoardSize());
         boardView.setP1Position(game.getPlayer1().getPiece().getPosition());
         boardView.setP2Position(game.getPlayer2().getPiece().getPosition());
@@ -96,25 +100,47 @@ public class GameActivity extends AppCompatActivity {
             textPlayerTurn.setText(game.getPlayer1().getName()+"'s Turn");
             textPlayerTurn.setTextScaleX(2);
         }
+        Effect();
         checkWin();
         game.nextTurn(); // turn++
     }
 
-//    private int adjustPosition(int current, int distance) {
-//        current = current + distance;
-//        int maxSquare = boardSize * boardSize - 1;
-//        if(current > maxSquare) {
-//            current = maxSquare - (current - maxSquare);
-//        }
-//        return current;
-//    }
+
+    private void Effect(){
+        String title = "Get Move Effect";
+        String msg = "";
+        OnClickListener listener = new OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+                boardView.setP1Position(game.getPlayer1().getPiece().getPosition());
+                boardView.setP2Position(game.getPlayer2().getPiece().getPosition());
+            }
+        };
+        if (game.checkEffect(game.getPlayer1())) {
+            msg = game.getPlayer1().getName()+"'s move to "+game.getEffect(game.getPlayer1());
+            game.getPlayer1().getPiece().setPosition(game.getEffect(game.getPlayer1()));
+
+        }
+
+        else if (game.checkEffect(game.getPlayer2())) {
+            msg = game.getPlayer2().getName()+"'s move to "+game.getEffect(game.getPlayer2());
+            game.getPlayer2().getPiece().setPosition(game.getEffect(game.getPlayer2()));
+
+        }
+
+        else {
+            return;
+        }
+        displayDialog(title, msg, listener);
+    }
 
     private void checkWin() {
         String title = "Game Over";
         String msg = "";
         OnClickListener listener = new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                game.resetGame();
+                resetGame();
                 dialog.dismiss();
             }
         };
@@ -127,6 +153,7 @@ public class GameActivity extends AppCompatActivity {
         }
         displayDialog(title, msg, listener);
     }
+
 
     private void displayDialog(String title, String message, DialogInterface.OnClickListener listener) {
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();

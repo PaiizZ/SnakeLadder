@@ -7,9 +7,6 @@ import java.util.Random;
  */
 public class Die {
 
-//    private final int minPoint = 1 ;
-//    private final int maxPoint = 6 ;
-
     private int point ;
     private Random random ;
 

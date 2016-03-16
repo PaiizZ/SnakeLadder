@@ -22,9 +22,7 @@ public class Game {
         this.board = new Board(7);
         this.turn = 0 ;
     }
-    public void resetGame(){
 
-    }
     public Die getDie(){
         return this.die;
     }
@@ -49,10 +47,7 @@ public class Game {
         return this.player1;
     }
 
-    public Player getPlayer2() {
-
-        return this.player2;
-    }
+    public Player getPlayer2() { return this.player2; }
 
     public Board getBoard() {
         return this.board;
@@ -60,6 +55,12 @@ public class Game {
 
     public int getTurn() {
         return this.turn;
+    }
+    public boolean checkEffect(Player player){
+        return board.getSquare(player.getPiece().getPosition()).checkEffect(player.getPiece().getPosition());
+    }
+    public int getEffect(Player player){
+        return  board.getSquare(player.getPiece().getPosition()).effectPlayer(player.getPiece().getPosition());
     }
 
     public void nextTurn(){
@@ -69,7 +70,7 @@ public class Game {
     public void reset(){
         this.player1.getPiece().setPosition(0);
         this.player2.getPiece().setPosition(0);
-        this.board.setBoardSize(8);
+        this.board.setBoardSize(7);
         this.turn = 0;
     }
 
