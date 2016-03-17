@@ -85,7 +85,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
 
     @Override
     public void update(Observable observable, Object data) {
-        if(data == null) { //update position from Game
+        if(data == null) {
             boardView.setP1Position(game.getPlayer1().getPiece().getPosition());
             boardView.setP2Position(game.getPlayer2().getPiece().getPosition());
         }
@@ -94,7 +94,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
             textPlayerTurn.setText(data.toString());
         }
 
-        else { // Display dialog
+        else {
             DataDialog d = (DataDialog) data;
             displayDialog(d.getTitle(), d.getMessage(), d.getListener());
         }
