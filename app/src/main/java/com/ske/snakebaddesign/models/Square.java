@@ -18,10 +18,7 @@ public abstract class Square implements Effective{
         return number;
     }
 
-    public int getColorCell() {
-
-        return colorCell;
-    }
+    public int getColorCell() { return colorCell; }
 
     public void setColorCell(int colorCell) {
         this.colorCell = colorCell;

@@ -17,16 +17,16 @@ public class Board {
 
         for(int i = 0 ; i < boardSize*boardSize; i++){
                 if (i == arr[0] || i == arr[1]){
-                    squareList.add(new MoveToSeven(i));
+                    squareList.add(new MoveToSevenSquare(i));
                 }
                 else if (i == arr[2] || i == arr[3]){
-                    squareList.add(new MoveToTwentySeven(i));
+                    squareList.add(new MoveToTwentySevenSquare(i));
                 }
                 else if (i == arr[4] || i == arr[5]){
-                    squareList.add(new MoveToThirtyNine(i));
+                    squareList.add(new MoveToThirtyNineSquare(i));
                 }
                 else if (i == arr[6] || i == arr[7]){
-                    squareList.add(new MoveToFortyTwo(i));
+                    squareList.add(new MoveToFortyTwoSquare(i));
                 }
                 else{
                     squareList.add(new NormalSquare(i));

@@ -2,6 +2,7 @@ package com.ske.snakebaddesign.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -85,14 +86,14 @@ public class GameActivity extends AppCompatActivity implements Observer{
             boardView.setP1Position(game.getPlayer1().getPiece().getPosition());
             boardView.setP2Position(game.getPlayer2().getPiece().getPosition());
         }
-
-        else if(data.getClass() == String.class){
-            textPlayerTurn.setText(data.toString());
-        }
-
-        else {
+        else if (data.getClass() == DataDisplayDialog.class){
             DataDisplayDialog d = (DataDisplayDialog) data;
             displayDialog(d.getTitle(), d.getMessage(), d.getListener());
         }
+        else {
+            textPlayerTurn.setText(data.toString());
+        }
+
+
     }
 }

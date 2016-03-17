@@ -5,16 +5,16 @@ import android.graphics.Color;
 /**
  * Created by PaiizZ on 3/16/2016 AD.
  */
-public class MoveToTwentySeven extends Square {
-    MoveToTwentySeven(int number) {
+public class MoveToFortyTwoSquare extends Square  {
+    public MoveToFortyTwoSquare(int number) {
         super(number, Color.parseColor("#F25192"));
-        switch (number) {
-            case 18: {
-                super.setColorCell(Color.parseColor("#E9F42D"));
+        switch (number){
+            case 37 : {
+                super.setColorCell(Color.parseColor("#EE0713"));
                 break;
             }
-            case 27: {
-                super.setColorCell(Color.parseColor("#E9F42D"));
+            case 42 : {
+                super.setColorCell(Color.parseColor("#EE0713"));
                 break;
             }
         }
@@ -22,12 +22,12 @@ public class MoveToTwentySeven extends Square {
 
     @Override
     public int effectPlayer(int position) {
-        return 27;
+        return 42;
     }
 
     @Override
     public boolean checkEffect(int position) {
-        if (position == 18) return true;
+        if (position == 37) return true;
         else return false;
     }
 }

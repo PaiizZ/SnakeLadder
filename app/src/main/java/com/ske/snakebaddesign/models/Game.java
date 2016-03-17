@@ -120,7 +120,6 @@ public class Game extends Observable{
             setChanged();
             notifyObservers(getPlayer1().getName() + "'s Turn");
         }
-
         nextTurn(); // turn++
     }
 
