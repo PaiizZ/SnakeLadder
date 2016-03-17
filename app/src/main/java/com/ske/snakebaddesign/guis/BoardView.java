@@ -23,13 +23,11 @@ public class BoardView extends View {
     private int colorText = Color.parseColor("#0f0e0e");
 
     // These variables will be used to keep track of what to render
-    private int boardSize;
     private int p1Position;
     private int p2Position;
     private Board board ;
 
     private void init() {
-        boardSize = 1;
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(30);
         paint.setTextScaleX(2);
@@ -68,10 +66,6 @@ public class BoardView extends View {
         this.board = board ;
         postInvalidate();
     }
-    public void setBoardSize(int boardSize) {
-        this.boardSize = boardSize;
-        postInvalidate();
-    }
 
     public void setP1Position(int p1Position) {
         this.p1Position = p1Position;
@@ -85,7 +79,7 @@ public class BoardView extends View {
 
     private void reloadViewDimensions() {
         viewWidth = getWidth();
-        cellSize = (viewWidth / boardSize);
+        cellSize = (viewWidth / board.getBoardSize());
         padding = 0.05f * cellSize;
         playerSize = cellSize/8;
     }
@@ -97,9 +91,9 @@ public class BoardView extends View {
 
     private void drawSquares(Canvas canvas) {
 
-        for(int i = 0; i < boardSize; i++) {
-            for(int j = 0; j < boardSize; j++) {
-                int index = j*boardSize+i ;
+        for(int i = 0; i < board.getBoardSize(); i++) {
+            for(int j = 0; j < board.getBoardSize(); j++) {
+                int index = j*board.getBoardSize()+i ;
                 float startX = i * cellSize + padding/2;
                 float startY = j * cellSize + padding/2;
                 float endX = startX + cellSize - padding;
@@ -127,11 +121,11 @@ public class BoardView extends View {
     }
 
     private int positionToRow(int position) {
-        return position / boardSize;
+        return position / board.getBoardSize();
     }
 
     private int positionToCol(int position) {
-        return position % boardSize;
+        return position % board.getBoardSize();
     }
 
 }

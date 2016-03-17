@@ -62,10 +62,11 @@ public class Game extends Observable{
     public void resetGame() {
         this.player1.getPiece().setPosition(0);
         this.player2.getPiece().setPosition(0);
-        //this.board.setBoardSize(7);
         this.turn = 0;
         setChanged();
         notifyObservers();
+        setChanged();
+        notifyObservers(getPlayer1().getName() + "'s Turn");
 
     }
 

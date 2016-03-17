@@ -64,10 +64,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
             }
         });
         boardView.setBoard(game.getBoard());
-        boardView.setBoardSize(game.getBoard().getBoardSize());
         textPlayerTurn = (TextView) findViewById(R.id.text_player_turn);
-        textPlayerTurn.setText(game.getPlayer1().getName() + "'s Turn");
-        textPlayerTurn.setTextScaleX(2);
     }
 
 
@@ -92,6 +89,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
         }
         else {
             textPlayerTurn.setText(data.toString());
+            textPlayerTurn.setTextScaleX(2);
         }
 
 
