@@ -2,23 +2,19 @@ package com.ske.snakebaddesign.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ske.snakebaddesign.R;
 import com.ske.snakebaddesign.guis.BoardView;
-import com.ske.snakebaddesign.models.Board;
-import com.ske.snakebaddesign.models.DataDialog;
+import com.ske.snakebaddesign.models.DataDisplayDialog;
 import com.ske.snakebaddesign.models.Game;
 
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements Observer{
 
@@ -95,7 +91,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
         }
 
         else {
-            DataDialog d = (DataDialog) data;
+            DataDisplayDialog d = (DataDisplayDialog) data;
             displayDialog(d.getTitle(), d.getMessage(), d.getListener());
         }
     }

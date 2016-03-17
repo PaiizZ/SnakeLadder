@@ -1,10 +1,8 @@
 package com.ske.snakebaddesign.models;
 
 import android.content.DialogInterface;
-import android.util.Log;
 
 import java.util.Observable;
-import java.util.Observer;
 
 /**
  * Created by PaiizZ on 3/14/2016 AD.
@@ -83,7 +81,7 @@ public class Game extends Observable{
                     moveCurrentPiece(value);
                 }
             };
-            DataDialog d = new DataDialog(title, msg, listener);
+            DataDisplayDialog d = new DataDisplayDialog(title, msg, listener);
             setChanged();
             notifyObservers(d);
         } else {
@@ -97,7 +95,7 @@ public class Game extends Observable{
                     moveCurrentPiece(value);
                 }
             };
-            DataDialog d = new DataDialog(title, msg, listener);
+            DataDisplayDialog d = new DataDisplayDialog(title, msg, listener);
             setChanged();
             notifyObservers(d);
         }
@@ -153,7 +151,7 @@ public class Game extends Observable{
                 dialog.dismiss();
             }
         };
-        DataDialog d = new DataDialog(title,msg,listener);
+        DataDisplayDialog d = new DataDisplayDialog(title,msg,listener);
         setChanged();
         notifyObservers(d);
 
@@ -177,7 +175,7 @@ public class Game extends Observable{
         else {
             return;
         }
-        DataDialog d = new DataDialog(title,msg,listener);
+        DataDisplayDialog d = new DataDisplayDialog(title,msg,listener);
         setChanged();
         notifyObservers(d);
     }
