@@ -13,9 +13,6 @@ public class Player {
         this.name = name ;
     }
 
-//    public Die getDie(){
-//        return this.die;
-//    }
     public int rollDie(){
         die.roll();
         return die.getPoint();

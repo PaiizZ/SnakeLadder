@@ -10,7 +10,6 @@ public class Board {
 
     private int boardSize;
     private List<Square> squareList;
-    private ArrayList<Integer> arrCheck ;
     private int arr[] = new int[] {2,7,18,27,23,39,37,42};
     public Board(int boardSize){
         this.boardSize = boardSize ;

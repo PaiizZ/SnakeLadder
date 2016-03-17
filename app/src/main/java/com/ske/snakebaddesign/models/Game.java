@@ -88,8 +88,8 @@ public class Game extends Observable{
             notifyObservers(d);
         } else {
             final int value = getPlayer2().rollDie();
-            String title = getPlayer2().getName() + " rolled a die";
-            String msg = getPlayer2().getName() + " got " + value;
+            String title = getPlayer2().getName() + "'s rolled a die";
+            String msg = getPlayer2().getName() + "'s got " + value;
             DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
 
